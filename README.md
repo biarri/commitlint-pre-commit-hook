@@ -26,11 +26,11 @@ repository. A good starting point is this example file:
 ### 2) Add commitlint to pre-commit
 
 - Add the following to your `.pre-commit-config.yaml`, under the `repos`
-  entry:
+  entry (See the full example at the bottom if you're getting started). 
 
   ```yaml
-  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
-    rev: v2.2.0
+  - repo: https://github.com/biarri/commitlint-pre-commit-hook
+    rev: v4.0.0
     hooks:
       - id: commitlint
         stages: [commit-msg]
@@ -67,7 +67,6 @@ confusing at first.
 | **[pre-commit (Software)](https://pre-commit.com/)**                       | A tool you install thats manages **Git Hooks** according to a `.pre-commit-config.yaml` file. Runs tools before commits such as prettier, black, and **commitlint**.                                                                                                |
 | **pre-commit (Software) Hook**                                             | A definition in the `.pre-commit-config.yaml` file, defining a particular action to occur during a **Git Hook's** execution.                                                                                                                                        |
 
-
 ## Full Examples
 
 You can copy these examples verbatim if you're getting started or have
@@ -77,11 +76,6 @@ gotten stuck.
   <summary>Full <code>.pre-commit-config.yaml</code> Example</summary>
   
   ```yaml
-  # Pre-commit defaults to running all hooks for all installed stages.
-  # This causes the linters to get confused trying to lint the
-  # .git/COMMIT_EDITMSG file during commits, as we install a commit-msg
-  # hook for the commitlint tool. This makes most hooks only run for
-  # staged files in the pre-commit phase.
   default_stages: [commit]
 
   repos:
@@ -99,7 +93,7 @@ gotten stuck.
       hooks:
         - id: prettier
     - repo: https://github.com/biarri/commitlint-pre-commit-hook
-      rev: v3.0.0
+      rev: v4.0.0
       hooks:
         - id: commitlint
           stages: [commit-msg]
